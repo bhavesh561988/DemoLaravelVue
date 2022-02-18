@@ -3,7 +3,7 @@
 ## Backend Laravel 8 & frontend vue 2.6
 ## Require php 8, node js, npm 
 
-## step for installation
+## Step for installation
 1. Clone this project first
 2. $ composer install 
 3. $ php artisan migrate
@@ -13,11 +13,11 @@
 7. open browser and type : localhost:8000
 
 
-# documentation Of laravel
+# Documentation laravel
 
 https://laravel.com/docs/8.x
 
-# documentation vue js
+# Documentation vue js
 
 https://vuejs.org/
 
