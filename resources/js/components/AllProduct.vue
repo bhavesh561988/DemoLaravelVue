@@ -19,16 +19,16 @@
                   class="card-img-top"
                   alt="Product"
                   height="150"
-                  v-b-modal.product-modal
+                  
                 />
               </a>
               <div class="card-body px-2 pb-2 pt-1">
                 <div class="d-flex justify-content-between">
-                  <div v-b-modal.product-modal>
+                  <div >
                     <p class="h4 text-primary">${{ product.price }}</p>
                   </div>
                 </div>
-                <p class="mb-0" v-b-modal.product-modal>
+                <p class="mb-0" >
                   <strong>
                     <a href="#" class="text-secondary">{{ product.name }}</a>
                   </strong>
@@ -38,9 +38,9 @@
                   <div class="ml-2">
                     <button
                       class="btn btn-outline-primary btn-block"
-                      @click="addCart(product)"
+                      v-b-modal.product-modal
                     >
-                      Add
+                      View
                     </button>
                   </div>
                 </div>
@@ -112,6 +112,13 @@
               <b>${{ totalAmount }}</b>
             </td>
           </tr>
+          <tr>
+            <td colspan="5">
+               <button class="btn btn-success" @click="orderPlaced()">
+                 Submit Order
+              </button>
+            </td>    
+          </tr>
         </tbody>
       </table>
     </div>
@@ -136,7 +143,7 @@
             class="btn btn-outline-primary btn-block"
             @click="addCart(detailProduct)"
           >
-            Add
+            Add Cart
           </button>
         </div>
       </div>
@@ -200,6 +207,7 @@ export default {
         this.selectedProduct.push(product);
         this.storeLocal();
         this.TotalCartAmount();
+        this.$toaster.success('Add cart successfully!.');
       }
     },
     removeCart(product) {
@@ -209,11 +217,14 @@ export default {
       );
       this.TotalCartAmount();
       this.storeLocal();
+      this.$toaster.info('Remove from cart successfuly!.')
     },
     storeLocal() {
       localStorage.removeItem("cart");
       localStorage.setItem("cart", JSON.stringify(this.selectedProduct));
     },
+
+
     changeQty(product, action) {
       this.isLoading = true;
       let index = this.selectedProduct.findIndex((a) => a.id === product.id);
@@ -233,6 +244,8 @@ export default {
       this.TotalCartAmount();
       this.isLoading = false;
     },
+
+
     TotalCartAmount() {
       this.isLoading = true;
       this.totalAmount = 0;
@@ -243,6 +256,22 @@ export default {
       });
       this.isLoading = false;
     },
+    orderPlaced() {
+      let url = `http://localhost:8000/api/order/placed`;
+      let data = {
+        products: this.selectedProduct,
+        totalAmount: this.totalAmount
+      }
+      this.axios.post(url,data).then((response) => {
+         if(response.data.success === true){
+           this.$toaster.success('Your order placed successfully!.');
+           this.selectedProduct = [];
+           this.storeLocal();
+         }else{
+           this.$toaster.error('Something went wrong plese tr again!.');
+         }
+      });
+    }
   },
 };
 </script>

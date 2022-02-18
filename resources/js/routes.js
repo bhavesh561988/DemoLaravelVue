@@ -1,6 +1,5 @@
 import AllProduct from './components/AllProduct.vue';
-import CreateProduct from './components/CreateProduct.vue';
-import EditProduct from './components/EditProduct.vue';
+import MyOrder from './components/Order.vue';
  
 export const routes = [
     {
@@ -9,13 +8,8 @@ export const routes = [
         component: AllProduct
     },
     {
-        name: 'create',
-        path: '/create',
-        component: CreateProduct
-    },
-    {
-        name: 'edit',
-        path: '/edit/:id',
-        component: EditProduct
+        name: 'order',
+        path: '/orders',
+        component: MyOrder
     }
 ];

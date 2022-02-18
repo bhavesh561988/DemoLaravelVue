@@ -4,7 +4,7 @@
     <div class="collapse navbar-collapse">
       <div class="navbar-nav">
         <router-link to="/" class="nav-item nav-link">Products</router-link>
-        <!-- <router-link to="/create" class="nav-item nav-link">Cart</router-link> -->
+        <router-link to="/orders" class="nav-item nav-link">My Orders</router-link>
       </div>
     </div>
   </nav>

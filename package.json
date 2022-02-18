@@ -26,6 +26,7 @@
     },
     "dependencies": {
         "bootstrap-vue": "^2.21.2",
+        "v-toaster": "^1.0.3",
         "vue-axios": "^2.1.5",
         "vue-pagination-2": "^3.0.91",
         "vue-router": "^3.5.3"
