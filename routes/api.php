@@ -16,14 +16,14 @@ use App\Http\Controllers\Api\OrderController;
 |
 */
 
+// route for get products api
 Route::get('products',[ProductController::class, 'products']);
+// route for get orders api
 Route::get('orders', [OrderController::class, 'orders']);
+// route order placed api
 Route::post('order/placed', [OrderController::class, 'orderPlaced']);
+// route order status update api
 Route::post('order/status/update', [OrderController::class, 'orderStatusUpdate']);
-
-// Route::middleware('auth:api')->get('/user', function (Request $request) {
-//     return $request->user();
-// });
 
 
 

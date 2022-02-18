@@ -8,6 +8,7 @@ use App\Models\Product;
 use Exception;
 class ProductController extends Controller
 {
+    // Using this function return products
     public function products(Request $request)
     {
         try{

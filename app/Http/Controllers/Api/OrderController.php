@@ -13,6 +13,7 @@ use Exception;
 
 class OrderController extends Controller
 {
+    // Using this function return orders
     public function orders(Request $request)
     {
         try{
@@ -23,6 +24,7 @@ class OrderController extends Controller
         }
     }
 
+    // Using this function placed order
     public function orderPlaced(Request $request)
     {
         DB::beginTransaction();
@@ -49,7 +51,7 @@ class OrderController extends Controller
         }
         
     }
-
+    // Using this function update status of order
     public function orderStatusUpdate(Request $request)
     {
         try{    
