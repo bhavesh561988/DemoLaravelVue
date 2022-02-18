@@ -1,6 +1,7 @@
-import AllProduct from './components/AllProduct.vue';
-import MyOrder from './components/Order.vue';
- 
+import AllProduct from './front/AllProduct.vue';
+import MyOrder from './front/Order.vue';
+import AdminOrder from './admin/Order.vue';
+
 export const routes = [
     {
         name: 'home',
@@ -11,5 +12,10 @@ export const routes = [
         name: 'order',
         path: '/orders',
         component: MyOrder
+    },
+    {
+        name: 'admin',
+        path: '/admin',
+        component: AdminOrder
     }
 ];

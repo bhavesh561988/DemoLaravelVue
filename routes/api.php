@@ -19,6 +19,7 @@ use App\Http\Controllers\Api\OrderController;
 Route::get('products',[ProductController::class, 'products']);
 Route::get('orders', [OrderController::class, 'orders']);
 Route::post('order/placed', [OrderController::class, 'orderPlaced']);
+Route::post('order/status/update', [OrderController::class, 'orderStatusUpdate']);
 
 // Route::middleware('auth:api')->get('/user', function (Request $request) {
 //     return $request->user();

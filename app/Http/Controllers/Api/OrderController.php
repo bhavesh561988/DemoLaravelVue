@@ -16,7 +16,7 @@ class OrderController extends Controller
     public function orders(Request $request)
     {
         try{
-            $orders = Order::with('order_items')->get();
+            $orders = Order::with('order_items')->orderBy('created_at','desc')->get();
             return response()->json($orders);
         }catch(Exception $e){
             return response()->json(['message'=>$e->getMessage(),'success'=>false],500);
@@ -48,5 +48,17 @@ class OrderController extends Controller
             return response()->json(['message'=>$e->getMessage(),'success'=>false],500);
         }
         
+    }
+
+    public function orderStatusUpdate(Request $request)
+    {
+        try{    
+            $order = Order::find($request->order_id);
+            $order->status = $request->status;
+            $order->save();
+            return response()->json(['message'=>'Order status updated successfully!','success'=>true]);
+        }catch(Exception $e){
+            return response()->json(['message'=>$e->getMessage(),'success'=>false],500);
+        }
     }
 }
