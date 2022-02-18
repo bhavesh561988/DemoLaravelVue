@@ -5,12 +5,22 @@
 
 ## Step for installation
 1. Clone this project first
-2. $ composer install 
-3. $ php artisan migrate
-4. $ npm install
-5. $ npm run dev
-6. $ php artisan serve
-7. open browser and type : localhost:8000
+2. rename .env.example to .env and set 
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=shop
+DB_USERNAME=root
+DB_PASSWORD=root
+
+3. $ composer install 
+4. $ php artisan migrate
+5. $ npm install
+6. $ npm run dev
+7. $ php artisan serve
+8. open browser and type : localhost:8000
+
+
 
 
 # Documentation laravel
