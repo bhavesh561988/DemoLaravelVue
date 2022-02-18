@@ -1,6 +1,6 @@
-## Demo of show catalogue/product add to cart of product and submit order.
+## Products add to cart of product and submit order.
 
-## For this demo use backend Laravel 8 & frontend vue 2.6
+## Backend Laravel 8 & frontend vue 2.6
 ## Require php 8, node js, npm 
 
 ## step for installation
